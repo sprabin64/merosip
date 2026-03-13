@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – MeroSIP</title>
+  <style>
+    /* ── Design tokens matching AppTheme ───────────────── */
+    :root {
+      --primary:        #0B7A6E;
+      --accent:         #0D9488;
+      --accent-dark:    #2DD4BF;
+      --gain:           #059669;
+      --loss:           #DC2626;
+      --gold:           #D97706;
+
+      --bg-light:       #F8FAFB;
+      --surface-light:  #EFF6F5;
+      --card-light:     #FFFFFF;
+      --border-light:   #E2EBE9;
+      --text-primary-l: #0F2027;
+      --text-sec-l:     #4B6970;
+      --text-ter-l:     #8BA5A0;
+
+      --bg-dark:        #0C1117;
+      --surface-dark:   #141C22;
+      --card-dark:      #182028;
+      --border-dark:    #1E2D35;
+      --text-primary-d: #F0F7F6;
+      --text-sec-d:     #8BAAA6;
+      --text-ter-d:     #506A65;
+
+      /* Active theme (light by default) */
+      --bg:           var(--bg-light);
+      --surface:      var(--surface-light);
+      --card:         var(--card-light);
+      --border:       var(--border-light);
+      --text-primary: var(--text-primary-l);
+      --text-sec:     var(--text-sec-l);
+      --text-ter:     var(--text-ter-l);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           var(--bg-dark);
+        --surface:      var(--surface-dark);
+        --card:         var(--card-dark);
+        --border:       var(--border-dark);
+        --text-primary: var(--text-primary-d);
+        --text-sec:     var(--text-sec-d);
+        --text-ter:     var(--text-ter-d);
+        --accent:       var(--accent-dark);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Top gradient header ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 45%, #0F2027 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .hero .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      margin-bottom: 16px;
+    }
+
+    .hero .logo-wrap svg { width: 40px; height: 40px; fill: #fff; }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Content wrapper ─── */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    /* ── Section cards ─── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section h2 .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      background: rgba(13,148,136,0.12);
+      flex-shrink: 0;
+    }
+
+    .section h2 .icon svg { width: 14px; height: 14px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .section p, .section ul, .section ol {
+      font-size: 13.5px;
+      color: var(--text-sec);
+      line-height: 1.7;
+    }
+
+    .section ul, .section ol {
+      padding-left: 18px;
+    }
+
+    .section ul li, .section ol li { margin-bottom: 4px; }
+
+    .section .sub-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 12px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Highlight box ─── */
+    .highlight {
+      background: rgba(13,148,136,0.07);
+      border: 1px solid rgba(13,148,136,0.2);
+      border-radius: 9px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--accent);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .highlight svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Footer ─── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p { font-size: 12px; color: var(--text-ter); line-height: 1.6; }
+
+    .footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-sec);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: rgba(13,148,136,0.1);
+      border-color: rgba(13,148,136,0.3);
+      color: var(--accent);
+    }
+
+    .nav-links a.active { font-weight: 700; }
+
+    /* ── Back button ─── */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      margin-bottom: 20px;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .back-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 20px 32px; }
+      .hero h1 { font-size: 24px; }
+      .content { padding: 24px 16px 60px; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="logo-wrap">
+      <!-- Trending-up icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 17l5-5 4 4 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M14 9h5v5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p>MeroSIP · Nepal Mutual Fund Companion</p>
+    <div class="badge">Last updated: July 2025</div>
+  </header>
+
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <div class="content" style="padding-bottom: 0; padding-top: 20px;">
+    <div class="nav-links" style="margin-top:0; margin-bottom: 0;">
+      <a href="privacy_policy.html" class="active">Privacy Policy</a>
+      <a href="terms_of_use.html">Terms of Use</a>
+    </div>
+  </div>
+
+  <!-- ── Main content ─────────────────────────────────────── -->
+  <main class="content">
+
+    <!-- Introduction -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        Introduction
+      </h2>
+      <p>
+        <strong>MeroSIP</strong> ("we", "our", "us") is committed to protecting your privacy.
+        This Privacy Policy explains how we collect, use, and safeguard your information
+        when you use our mobile application.
+      </p>
+      <div class="highlight">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        By using MeroSIP, you agree to the collection and use of information in accordance with this policy.
+      </div>
+    </div>
+
+    <!-- Information We Collect -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        Information We Collect
+      </h2>
+      <div class="sub-heading">Local Data (Stored on Your Device)</div>
+      <ul>
+        <li>Portfolio information: fund names, SIP amounts, transaction history</li>
+        <li>App preferences: theme settings, portfolio names, display settings</li>
+        <li>NAV data: cached fund performance and historical data</li>
+      </ul>
+      <div class="sub-heading">Cloud Data (When Google Sign-In is Used)</div>
+      <ul>
+        <li>Google account information: name, email, profile photo</li>
+        <li>Firebase authentication tokens</li>
+        <li>Synced portfolio data stored securely in Firebase Firestore</li>
+      </ul>
+      <div class="sub-heading">Automatically Collected</div>
+      <ul>
+        <li>Device connectivity status (online/offline detection)</li>
+        <li>Anonymous usage analytics via Firebase (if enabled)</li>
+        <li>Crash reports to improve app stability</li>
+      </ul>
+    </div>
+
+    <!-- How We Use Your Information -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </span>
+        How We Use Your Information
+      </h2>
+      <ul>
+        <li>To provide and maintain the SIP tracking service</li>
+        <li>To sync your portfolio data across devices (when signed in)</li>
+        <li>To display current NAV and fund performance data</li>
+        <li>To send local notifications about SIP dates (with your permission)</li>
+        <li>To improve app performance and fix bugs</li>
+        <li>To display relevant advertisements via Google AdMob</li>
+      </ul>
+    </div>
+
+    <!-- Data Storage & Security -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </span>
+        Data Storage &amp; Security
+      </h2>
+      <ul>
+        <li>Local data is stored securely on your device using SQLite and encrypted SharedPreferences</li>
+        <li>Cloud data is stored in Google Firebase with industry-standard security</li>
+        <li>Your portfolio data in Firestore is protected by security rules that only allow access to your own data</li>
+        <li>We do not sell, trade, or share your personal data with third parties</li>
+        <li>Cloud sync is optional; the app works fully offline</li>
+      </ul>
+    </div>
+
+    <!-- Third-Party Services -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+        </span>
+        Third-Party Services
+      </h2>
+      <p>MeroSIP uses the following third-party services:</p>
+      <ul>
+        <li><strong>Google Firebase</strong> – Authentication, cloud data storage, analytics</li>
+        <li><strong>Google AdMob</strong> – Advertising (subject to Google's privacy policy)</li>
+        <li><strong>Google Sign-In</strong> – Optional account authentication</li>
+      </ul>
+      <p style="margin-top:10px;">Each third-party service has its own privacy policy governing the use of your information.</p>
+    </div>
+
+    <!-- Your Rights -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        Your Rights
+      </h2>
+      <ul>
+        <li><strong>Access:</strong> You can view all data stored in the app at any time</li>
+        <li><strong>Deletion:</strong> You can delete your portfolio data from the app settings</li>
+        <li><strong>Portability:</strong> You can export your transaction data as CSV</li>
+        <li><strong>Opt-out:</strong> You can use the app entirely offline without cloud sync</li>
+        <li><strong>Sign out:</strong> Signing out disconnects cloud sync; local data remains on device</li>
+      </ul>
+    </div>
+
+    <!-- Children's Privacy -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        Children's Privacy
+      </h2>
+      <p>
+        MeroSIP is not intended for use by children under 13. We do not knowingly collect personal information from children.
+      </p>
+    </div>
+
+    <!-- Changes to Policy -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </span>
+        Changes to This Policy
+      </h2>
+      <p>
+        We may update this Privacy Policy from time to time. Changes will be reflected within the app.
+        Continued use of MeroSIP after changes constitutes acceptance of the updated policy.
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <h2>
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        Contact Us
+      </h2>
+      <p>
+        If you have any questions about this Privacy Policy, please contact us through the app feedback option or email us.
+      </p>
+      <div class="highlight">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+        For support and privacy inquiries, use the in-app feedback option in the MeroSIP app.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="nav-links" style="margin-bottom: 16px;">
+      <a href="privacy_policy.html" class="active">Privacy Policy</a>
+      <a href="terms_of_use.html">Terms of Use</a>
+    </div>
+    <p>
+      &copy; 2025 MeroSIP · Nepal Mutual Fund Companion<br/>
+      Last updated: 2026
+    </p>
+  </footer>
+
+</body>
+</html>
